@@ -1,70 +1,122 @@
-# Getting Started with Create React App
+# react-side-nav-bar
+## Description
+A customizable and responsive side navigation bar for React applications, integrated with lucide-react icons. This component allows you to create a dynamic and stylish navigation menu that enhances user experience and improves navigation within your application.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Table of Contents
+- [react-side-nav-bar](#react-side-nav-bar)
+  - [Description](#description)
+  - [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Screenshots](#screenshots)
+  - [Contributing](#contributing)
+  - [Fork the repository.](#fork-the-repository)
+  - [License](#license)
 
-## Available Scripts
+## Getting Started
+This project was bootstrapped with Create React App.
 
-In the project directory, you can run:
+## Prerequisites
+Make sure you have Node.js installed. You can download it from here.
 
-### `npm start`
+## Installation
+Clone the repository:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+bash
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+git clone https://github.com/your-username/react-side-nav-bar.git
+Navigate to the project directory:
 
-### `npm test`
+bash
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+cd react-side-nav-bar
+Install the dependencies:
 
-### `npm run build`
+bash
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+npm install
+Install lucide-react for icons:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+bash
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+npm install lucide-react
+Start the development server:
 
-### `npm run eject`
+bash
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+npm start
+This will run the app in the development mode. Open http://localhost:3000 to view it in the browser.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Usage
+Here’s a basic example of how to use the react-side-nav-bar component with lucide-react icons:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+jsx
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+import React from 'react';
+import SideNavBar from './SideNavBar';
+import { Home, Info, Briefcase, Phone } from 'lucide-react';
 
-## Learn More
+const App = () => {
+  return (
+    <div>
+      <SideNavBar
+        menuItems={[
+          { name: 'Home', icon: <Home />, route: '/' },
+          { name: 'About', icon: <Info />, route: '/about' },
+          { name: 'Services', icon: <Briefcase />, route: '/services' },
+          { name: 'Contact', icon: <Phone />, route: '/contact' },
+        ]}
+      />
+      <div className="main-content">
+        {/* Your main content goes here */}
+      </div>
+    </div>
+  );
+};
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+export default App;
+Explanation:
+Icons from lucide-react: Icons like Home, Info, Briefcase, and Phone are imported from lucide-react and used in the menuItems prop.
+Props
+Prop	Type	Description	Default
+menuItems	Array	List of menu items, each with a name, icon, and route.	[]
+width	String	Width of the side nav bar.	'250px'
+position	String	Position of the side nav ('left' or 'right').	'left'
+theme	String	Theme of the side nav ('light' or 'dark').	'light'
+onSelect	Function	Callback function when a menu item is selected.	() => {}
+Customization
+You can easily customize the react-side-nav-bar to match your application's design. For example:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+jsx
 
-### Code Splitting
+import { Settings, User } from 'lucide-react';
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<SideNavBar
+  menuItems={[
+    { name: 'Dashboard', icon: <Home />, route: '/' },
+    { name: 'Profile', icon: <User />, route: '/profile' },
+    { name: 'Settings', icon: <Settings />, route: '/settings' },
+  ]}
+  width="300px"
+  position="right"
+  theme="dark"
+  onSelect={(item) => console.log(`Selected ${item.name}`)}
+/>
 
-### Analyzing the Bundle Size
+## Screenshots
+![Light Theme Screenshot](./src/assets/screenshot.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Contributing
+Contributions are welcome! Please fork the repository and submit a pull request for any changes or improvements.
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Fork the repository.
+Create a new branch (git checkout -b feature/YourFeature).
+Make your changes.
+Commit your changes (git commit -m 'Add some feature').
+Push to the branch (git push origin feature/YourFeature).
+Open a pull request.
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
