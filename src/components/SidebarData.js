@@ -1,20 +1,19 @@
 import React from 'react';
 import * as FaIcons from 'lucide-react';
 
+// Data for the sidebar menu items
 export const SidebarData = [
     {
         title: 'Home',
         path: '/',
         icon: <FaIcons.House />,
         cName: 'nav-text'
-
     },
     {
         title: 'Barcode',
         path: '/barcode',
         icon: <FaIcons.Barcode />,
         cName: 'nav-text'
-
     },
     {
         title: 'FAQ',
@@ -64,5 +63,4 @@ export const SidebarData = [
         icon: <FaIcons.Group />,
         cName: 'nav-text'
     }
-]
-
+];
